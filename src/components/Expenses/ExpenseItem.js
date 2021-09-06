@@ -4,7 +4,8 @@ import ExpenseDate from "./ExpenseDate";
 import Card from "../UI/Card";
 // "./Card";
 
-export default function ExpenseItem(props) {
+// export default
+const ExpenseItem = (props) => {
   //   return <h2>ExpenseItem works!</h2>;
   const expenseDate = new Date(2021, 8, 5).toLocaleDateString(); //Sep 5 2021
   const expenseTitle = "car insurance";
@@ -17,5 +18,5 @@ export default function ExpenseItem(props) {
       <div className="expense-item__price">${props.amount}</div>
     </Card>
   );
-}
-// export default ExpenseItem;
+};
+export default ExpenseItem;
