@@ -1,4 +1,5 @@
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
+// "./components/Expenses";
 
 function App() {
   //regular js ==>imparative approch as we give step by step instructions that the ingine will follow
