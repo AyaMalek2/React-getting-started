@@ -7,37 +7,18 @@ const ExpenseForm = () => {
   //initialized as string because the target value is string
   const [enteredDate, setEnteredDate] = useState("");
 
-  const titleChangeHandler = (event) => {
-    setEnteredTitle(event.target.value);
-    // setState({ ...state, enteredTitle: event.target.value });
-  };
-  const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value);
-    // setState({ ...state, enteredAmount: event.target.value });
-    //will not be correct if we need the prev state in our calculation of next state
-    // setState((prevState) => {
-    //   return { ...prevState, enteredAmount: event.target.value };
-    // });
-  };
-  const dateChangeHandler = (event) => {
-    setEnteredDate(event.target.value);
-    // setState({ ...state, enteredDate: event.target.value });
-  };
-
-  // const [state, setState] = useState({
-  //   enteredTitle: "",
-  //   enteredAmount: "",
-  //   enteredDate: "",
-  // });
+  const titleChangeHandler = (event) => setEnteredTitle(event.target.value);
+  const amountChangeHandler = (event) => setEnteredAmount(event.target.value);
+  const dateChangeHandler = (event) => setEnteredDate(event.target.value);
 
   const submitFormHandler = (event) => {
     event.preventDefault();
-    const submitResult = {
+    const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: enteredDate,
     };
-    console.log("submitted: ", submitResult);
+    console.log("submitted: ", expenseData);
     setEnteredDate("");
     setEnteredTitle("");
     setEnteredAmount("");
