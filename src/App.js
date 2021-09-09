@@ -1,6 +1,7 @@
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 // "./components/Expenses";
+import { useState } from "react";
 
 function App() {
   //regular js ==>imparative approch as we give step by step instructions that the ingine will follow
@@ -33,10 +34,16 @@ function App() {
     },
   ];
 
+  const addnewExpenseHandler = (newExpenseData) => {
+    expenses.push(newExpenseData);
+    console.log(newExpenseData);
+    console.log(expenses);
+  };
+
   return (
     <div>
       {/* <h2>Let's get started!</h2> */}
-      <NewExpense />
+      <NewExpense onAddNewExpense={addnewExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );

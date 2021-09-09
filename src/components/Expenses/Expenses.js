@@ -1,33 +1,35 @@
 import Card from "../UI/Card";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
+import ExpensesFilter from "./ExpensFilter";
+import { useState } from "react";
 
 export default function Expenses(props) {
+  const [expensesFilter, setExpensesFilter] = useState("2019");
+
+  const selectFilterHandler = (filterOption) => {
+    setExpensesFilter(filterOption);
+    console.log(filterOption);
+    console.log(expensesFilter);
+  };
+
   return (
-    <Card className="expenses">
-      <ExpenseItem
-        title={props.items[0].title}
-        amount={props.items[0].amount}
-        date={props.items[0].date}
-      ></ExpenseItem>
+    <div className="expenses">
+      <Card>
+        <ExpensesFilter
+          onFilterSelect={selectFilterHandler}
+          default={expensesFilter}
+        />
 
-      <ExpenseItem
-        title={props.items[1].title}
-        amount={props.items[1].amount}
-        date={props.items[1].date}
-      ></ExpenseItem>
-
-      <ExpenseItem
-        title={props.items[2].title}
-        amount={props.items[2].amount}
-        date={props.items[2].date}
-      ></ExpenseItem>
-
-      <ExpenseItem
-        title={props.items[3].title}
-        amount={props.items[3].amount}
-        date={props.items[3].date}
-      ></ExpenseItem>
-    </Card>
+        {props.items.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            title={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          />
+        ))}
+      </Card>
+    </div>
   );
 }
