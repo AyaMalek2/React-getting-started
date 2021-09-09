@@ -12,7 +12,7 @@ function App() {
   //but react uses a declaritive approch to do the dom work
   // and update the view with target state defined in the function
 
-  const expenses = [
+  const [expenses, setExpenses] = useState([
     {
       id: "e1",
       title: "Toilet Paper",
@@ -32,10 +32,13 @@ function App() {
       amount: 450,
       date: new Date(2021, 5, 12),
     },
-  ];
+  ]);
+
+  // const expenses = ;
 
   const addnewExpenseHandler = (newExpenseData) => {
-    expenses.push(newExpenseData);
+    setExpenses((prevExpenses) => [...prevExpenses, newExpenseData]);
+    // expenses.push(newExpenseData);
     console.log(newExpenseData);
     console.log(expenses);
   };
